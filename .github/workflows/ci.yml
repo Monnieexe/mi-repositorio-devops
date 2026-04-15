@@ -1,0 +1,17 @@
+name: Pipeline CI-CD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del codigo
+        uses: actions/checkout@v3
+
+      - name: Validar Docker
+        run: |
+          echo "Simulando la fase de construccion..."
+          docker build -t mi-app-flask .
