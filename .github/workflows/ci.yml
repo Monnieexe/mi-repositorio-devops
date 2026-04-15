@@ -11,7 +11,10 @@ jobs:
       - name: Checkout del codigo
         uses: actions/checkout@v3
 
-      - name: Validar Docker
-        run: |
-          echo "Simulando la fase de construccion..."
-          docker build -t mi-app-flask .
+      - name: Instalar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Validar Docker Build
+        run: docker build -t mi-app-flask .
